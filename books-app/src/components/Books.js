@@ -105,25 +105,51 @@ class Books extends Component {
 
         <h3>Add a new book!</h3>
 
-        <form onSubmit={e => this.onHandleSubmit(e)}>
-          <div>
-            <label htmlFor="title">title</label>
-            <input type="text" name="title" id="title" value={this.state.title} onChange={e => this.onInputChange(e)} />
-          </div>
-          <div>
-            <label htmlFor="author">author</label>
-            <input type="text" name="author" id="author" value={this.state.author} onChange={e => this.onInputChange(e)} />
-          </div>
-          <div>
-            <label htmlFor="publication_year">publication year</label>
-            <input type="text" name="publication_year" id="publication_year" value={this.state.publication_year} onChange={e => this.onInputChange(e)} />
-          </div>
-          <div>
-            <label htmlFor="read">have you read it?</label>
-            <input type="text" name="read" id="read" value={this.state.read} onChange={e => this.onInputChange(e)} />
-          </div>
-          <input type="submit" value="submit" />
-        </form>
+        <div className="row col-md-6 offset-md-3">
+          <form onSubmit={e => this.onHandleSubmit(e)}>
+            <div className="form-group">
+              <label htmlFor="title">title</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                className="form-control"
+                value={this.state.title}
+                onChange={e => this.onInputChange(e)} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="author">author</label>
+              <input
+                type="text"
+                name="author"
+                id="author"
+                className="form-control"
+                value={this.state.author}
+                onChange={e => this.onInputChange(e)} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="publication_year">publication year</label>
+              <input
+                type="text"
+                name="publication_year"
+                id="publication_year"
+                className="form-control"
+                value={this.state.publication_year}
+                onChange={e => this.onInputChange(e)} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="read">have you read it?</label>
+              <input
+                type="text"
+                name="read"
+                id="read"
+                className="form-control"
+                value={this.state.read}
+                onChange={e => this.onInputChange(e)} />
+            </div>
+            <input type="submit" value="submit" className="btn btn-outline-dark"/>
+          </form>
+        </div>
 
         <ul>
           {books}

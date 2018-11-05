@@ -2,9 +2,18 @@
   text-align: center;
 }
 
+h1 {
+  margin: 50px 0px;
+}
+
+form {
+  width: 100%;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
+  margin-top: 100px;
 }
 
 li {
