@@ -11,6 +11,17 @@ router.get('/', (req, res) => {
     .catch(err => {
       res.send(err)
     })
+});
+
+// index route
+router.post('/', (req, res) => {
+  Book.create(req.body)
+    .then(book => {
+      res.json(book);
+    })
+    .catch(err => {
+      res.send(err)
+    })
 })
 
 
