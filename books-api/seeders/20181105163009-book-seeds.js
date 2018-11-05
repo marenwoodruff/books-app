@@ -12,6 +12,26 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+    return queryInterface.bulkInsert('books', [
+      {
+        title: 'The Eyre Affair',
+        author: 'Jasper Fforde',
+        publication_year: '2001',
+        read: true
+      },
+      {
+        title: 'A Study in Charlotte',
+        author: 'Brittany Cavallaro',
+        publication_year: '2016',
+        read: true
+      },
+      {
+        title: 'The Passion',
+        author: 'Jeanette Winterson',
+        publication_year: '1987',
+        read: true
+      }
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -22,5 +42,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
+    return queryInterface.bulkDelete('books', null, {});
   }
 };
