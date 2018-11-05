@@ -17,19 +17,25 @@ module.exports = {
         title: 'The Eyre Affair',
         author: 'Jasper Fforde',
         publication_year: '2001',
-        read: true
+        read: true,
+        createdAt: Sequelize.literal('NOW()'),
+        updatedAt: Sequelize.literal('NOW()')
       },
       {
         title: 'A Study in Charlotte',
         author: 'Brittany Cavallaro',
         publication_year: '2016',
-        read: true
+        read: true,
+        createdAt: Sequelize.literal('NOW()'),
+        updatedAt: Sequelize.literal('NOW()')
       },
       {
         title: 'The Passion',
         author: 'Jeanette Winterson',
         publication_year: '1987',
-        read: true
+        read: true,
+        createdAt: Sequelize.literal('NOW()'),
+        updatedAt: Sequelize.literal('NOW()')
       }
     ], {});
   },
