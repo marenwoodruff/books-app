@@ -1,9 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const Book = require('../models').book;
 
 // index route
 router.get('/', (req, res) => {
-  res.send('this works');
+  Book.findAll()
+    .then(books => {
+      res.json(books);
+    })
+    .catch(err => {
+      res.send(err)
+    })
 })
 
 
