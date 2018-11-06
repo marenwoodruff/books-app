@@ -1,11 +1,12 @@
 import React from 'react';
+import './BookForm.css';
 
 const BookForm = (props) => {
     return (
       <div>
         <h3>Add a new book!</h3>
 
-        <div className="row col-md-6 offset-md-3">
+        <div className="row col-md-6 offset-md-3 form-container">
           <form onSubmit={props.onHandleSubmit}>
             <div className="form-group">
               <label htmlFor="title">title</label>

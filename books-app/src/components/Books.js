@@ -34,8 +34,6 @@ class Books extends Component {
   }
 
   onInputChange(e) {
-    // console.log('target name ', e.target.name)
-    // console.log('target value ', e.target.value)
     switch(e.target.name) {
       case 'title':
         this.setState({
@@ -84,10 +82,6 @@ class Books extends Component {
 
     fetch(booksApi, options)
       .then(res => res.json())
-      // .then(book => {
-      //   return this.state.books.push(book);
-      //   console.log(this.state.books);
-      // })
       .then((book) => {
         this.setState((prevState) => {
           return {
@@ -104,7 +98,12 @@ class Books extends Component {
 
   render() {
     let books = this.state.books.map((book) => (
-      <Book key={book.id} title={book.title} author={book.author} publication_year={book.publication_year} read={book.read} />
+      <Book
+        key={book.id}
+        title={book.title}
+        author={book.author}
+        publication_year={book.publication_year}
+        read={book.read} />
     ))
 
     return (
