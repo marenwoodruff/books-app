@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Book from './Book';
+import BookForm from './BookForm';
 
 let booksApi = 'http://localhost:3001/api/books';
 
@@ -14,6 +15,9 @@ class Books extends Component {
       publication_year: '',
       read: false
     }
+
+    this.onHandleSubmit = this.onHandleSubmit.bind(this)
+    this.onInputChange = this.onInputChange.bind(this)
   }
 
   componentDidMount() {
@@ -80,14 +84,18 @@ class Books extends Component {
 
     fetch(booksApi, options)
       .then(res => res.json())
-      .then(book => {
+      // .then(book => {
+      //   return this.state.books.push(book);
+      //   console.log(this.state.books);
+      // })
+      .then((book) => {
         this.setState((prevState) => {
           return {
-            books: [...prevState.books, book],
             title: '',
             author: '',
             publication_year: '',
-            read: false
+            read: false,
+            books: [...prevState.books, book]
           }
         })
       })
@@ -103,53 +111,13 @@ class Books extends Component {
       <div>
         <h1>My Favorite Books!</h1>
 
-        <h3>Add a new book!</h3>
-
-        <div className="row col-md-6 offset-md-3">
-          <form onSubmit={e => this.onHandleSubmit(e)}>
-            <div className="form-group">
-              <label htmlFor="title">title</label>
-              <input
-                type="text"
-                name="title"
-                id="title"
-                className="form-control"
-                value={this.state.title}
-                onChange={e => this.onInputChange(e)} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="author">author</label>
-              <input
-                type="text"
-                name="author"
-                id="author"
-                className="form-control"
-                value={this.state.author}
-                onChange={e => this.onInputChange(e)} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="publication_year">publication year</label>
-              <input
-                type="text"
-                name="publication_year"
-                id="publication_year"
-                className="form-control"
-                value={this.state.publication_year}
-                onChange={e => this.onInputChange(e)} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="read">have you read it?</label>
-              <input
-                type="text"
-                name="read"
-                id="read"
-                className="form-control"
-                value={this.state.read}
-                onChange={e => this.onInputChange(e)} />
-            </div>
-            <input type="submit" value="submit" className="btn btn-outline-dark"/>
-          </form>
-        </div>
+        <BookForm
+          title={this.state.title}
+          author={this.state.author}
+          publication_year={this.state.publication_year}
+          read={this.state.read}
+          onHandleSubmit={this.onHandleSubmit}
+          onInputChange={this.onInputChange}/>
 
         <ul>
           {books}
